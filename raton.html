@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de Ratón</title>
+    <style>
+        #miElemento {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="miElemento">Haz clic aquí</div>
+
+<script>
+    var miElemento = document.getElementById("miElemento");
+
+    // Evento de clic
+    miElemento.addEventListener("click", function() {
+        this.innerHTML = "Clic realizado";
+        this.style.backgroundColor = "lightcoral";
+    });
+
+    // Evento al pasar el ratón sobre el elemento
+    miElemento.addEventListener("mouseover", function() {
+        this.style.fontWeight = "bold";
+    });
+
+    // Evento al salir del ratón del elemento
+    miElemento.addEventListener("mouseout", function() {
+        this.style.fontWeight = "normal";
+    });
+</script>
+
+</body>
+</html>

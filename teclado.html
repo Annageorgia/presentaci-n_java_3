@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de Teclado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #output {
+            font-size: 24px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<p>Pulsa una tecla para ver el resultado:</p>
+<div id="output"></div>
+
+<script>
+    var output = document.getElementById("output");
+
+    document.addEventListener("keydown", function(event) {
+        output.textContent = "Tecla presionada: " + event.key;
+    });
+
+    document.addEventListener("keyup", function() {
+        output.textContent = "Pulsa una tecla para ver el resultado:";
+    });
+</script>
+
+</body>
+</html>

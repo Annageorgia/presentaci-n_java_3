@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Observador de Mutaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="miDiv">Contenido inicial</div>
+<button onclick="agregarElemento()">Agregar Elemento</button>
+
+<div id="output"></div>
+
+<script>
+    var output = document.getElementById("output");
+
+    // Seleccionamos el nodo objetivo
+    var targetNode = document.getElementById("miDiv");
+
+    // Configuramos el observador de mutaciones con una función de devolución de llamada
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            output.textContent = "Tipo de mutación: " + mutation.type;
+        });
+    });
+
+    // Configuramos las opciones para el observador
+    var config = { attributes: true, childList: true, subtree: true };
+
+    // Lanzamos el observador en el nodo objetivo con las opciones configuradas
+    observer.observe(targetNode, config);
+
+    // Función para agregar un elemento al DOM
+    function agregarElemento() {
+        var nuevoElemento = document.createElement("p");
+        nuevoElemento.textContent = "Nuevo elemento agregado";
+        targetNode.appendChild(nuevoElemento);
+    }
+</script>
+
+</body>
+</html>

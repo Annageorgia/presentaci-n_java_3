@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos HTML con JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="miBoton">Haz clic</button>
+<div id="output"></div>
+
+<script>
+    var miBoton = document.getElementById("miBoton");
+    var output = document.getElementById("output");
+
+    // Evento de clic
+    miBoton.addEventListener("click", function() {
+        output.textContent = "¡Clic realizado!";
+    });
+
+    // Evento al pasar el ratón sobre el botón
+    miBoton.addEventListener("mouseover", function() {
+        this.style.backgroundColor = "#45a049";
+    });
+
+    // Evento al salir del ratón del botón
+    miBoton.addEventListener("mouseout", function() {
+        this.style.backgroundColor = "#4CAF50";
+    });
+</script>
+
+</body>
+</html>
