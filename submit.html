@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function miFuncion() {
+        alert("Formulario enviado");
+        return false; // Evitar que el formulario se envíe realmente
+        }
+        </script>
+        
+</head>
+<body>
+    <form onsubmit="return miFuncion()">
+        <input type="submit" value="Enviar">
+        </form>
+        
+</body>
+</html>

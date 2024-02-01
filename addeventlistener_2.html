@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Varios eventos con add.EventListener </h2>
+    <p> Haz click o pase el raton sobre el  boton para aumentar el contador </p>
+    <h1>Cantidad: <span id="counter"> 0 </span> </h1>
+    <button id="btn" >Contador ++</button>
+ </body>
+ <script>
+    // Get the button and counter
+    let btn = document.getElementById("btn")
+    let counter = document.getElementById("counter");
+    
+    // Call the addEventListener method
+    btn.addEventListener("mousemove", increase)
+    btn.addEventListener("click", increase)
+    
+    // Define the increase function
+    function increase(){
+       counter.innerText = parseInt(counter.innerText) + 1
+    }
+ </script>
+ </html>

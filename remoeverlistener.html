@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        #myDIV {
+          background-color: coral;
+          padding: 16px;
+        }
+    </style>
+        
+<body>
+        <h1>TEL objeto elemento</h1>
+        <h2>Metodo removeEventListener() </h2>
+        
+        <div id="myDIV">Este elemento naranja tiene un controlador de eventos 
+            onmousemove que muestra un numero aleatorio Cuando mueves el raton hacia dentro
+          <p>Haz click en "Eliminar" para eliminar el controlador de eventos</p>
+          <button onclick="removeHandler()">Remove</button>
+        </div>
+        
+        <p id="demo"></p>
+        
+        <script>
+        const myDiv = document.getElementById("myDIV");
+        myDiv.addEventListener("mousemove", myFunction);
+        
+        function removeHandler() {
+          myDiv.removeEventListener("mousemove", myFunction);
+        }
+        
+        function myFunction() {
+          document.getElementById("demo").innerHTML = Math.random();
+        }
+        </script>
+        
+</body>
+</html>
