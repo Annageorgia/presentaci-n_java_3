@@ -8,12 +8,36 @@
         function miFuncion() {
         alert("El mouse ha salido del div");
         }
-     </script>
-     
+    </script>
+    <style>
+            body{display: flex;
+                justify-content: center;
+                align-items:center;
+                width: 100%;
+                background-image: url(/logo_monster.webp);
+                background-repeat:no-repeat;
+                background-color: rgba(70,17,119,255);
+                background-attachment: fixed;
+                background-position: center;
+                }
+            div{background-color: red;
+                   color: white;
+                   width: 15%;
+                   height: 3rem;
+                   font-size: 1rem;
+                   margin-top: 42rem ;
+                   justify-content: center;
+                   align-items: center;
+                   text-align: center;
+                  }
+            p{margin: 1rem;}
+    </style>   
         
 </head>
 <body>
-    <div onmouseout="miFuncion()">Pasa el mouse fuera del elemento</div>
+    <div onmouseout="miFuncion()">
+       <p> Pasa el mouse fuera del elemento </p>
+    </div>
 
 </body>
 </html>
