@@ -2,51 +2,65 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Observador de Mutaciones</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        #output {
-            margin-top: 20px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de eventos DOM con botones</title>
 </head>
 <body>
 
-<div id="miDiv">Contenido inicial</div>
-<button onclick="agregarElemento()">Agregar Elemento</button>
+    <div id="contenedor">
+        <button id="agregarBoton">Agregar Botón</button>
+        <button id="eliminarBoton">Eliminar Último Botón</button>
+    </div>
 
-<div id="output"></div>
+    <script>
+        // Seleccionamos el contenedor div
+        var contenedor = document.getElementById('contenedor');
 
-<script>
-    var output = document.getElementById("output");
+        // Función para manejar la inserción de un nuevo botón
+        function agregarNuevoBoton() {
+            var nuevoBoton = document.createElement('button');
+            nuevoBoton.textContent = 'Nuevo Botón';
+            contenedor.appendChild(nuevoBoton);
+        }
 
-    // Seleccionamos el nodo objetivo
-    var targetNode = document.getElementById("miDiv");
+        // Función para manejar la eliminación del último botón
+        function eliminarUltimoBoton() {
+            var botones = contenedor.getElementsByTagName('button');
+            if (botones.length > 0) {
+                var ultimoBoton = botones[botones.length - 1];
+                contenedor.removeChild(ultimoBoton);
+            }
+        }
 
-    // Configuramos el observador de mutaciones con una función de devolución de llamada
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            output.textContent = "Tipo de mutación: " + mutation.type;
+        // Evento DOMSubtreeModified - se dispara cuando se modifica el árbol DOM dentro del elemento o sus descendientes
+        contenedor.addEventListener('DOMSubtreeModified', function(event) {
+            console.log('DOMSubtreeModified event:', event);
         });
-    });
 
-    // Configuramos las opciones para el observador
-    var config = { attributes: true, childList: true, subtree: true };
+        // Evento DOMNodeInserted - se dispara cuando un nuevo nodo es insertado como hijo del elemento
+        contenedor.addEventListener('DOMNodeInserted', function(event) {
+            console.log('DOMNodeInserted event:', event);
+        });
 
-    // Lanzamos el observador en el nodo objetivo con las opciones configuradas
-    observer.observe(targetNode, config);
+        // Evento DOMNodeRemoved - se dispara cuando un nodo es removido como hijo del elemento
+        contenedor.addEventListener('DOMNodeRemoved', function(event) {
+            console.log('DOMNodeRemoved event:', event);
+        });
 
-    // Función para agregar un elemento al DOM
-    function agregarElemento() {
-        var nuevoElemento = document.createElement("p");
-        nuevoElemento.textContent = "Nuevo elemento agregado";
-        targetNode.appendChild(nuevoElemento);
-    }
-</script>
+        // Evento DOMNodeRemovedFromDocument - se dispara cuando un nodo es removido del documento
+        contenedor.addEventListener('DOMNodeRemovedFromDocument', function(event) {
+            console.log('DOMNodeRemovedFromDocument event:', event);
+        });
+
+        // Evento DOMNodeInsertedIntoDocument - se dispara cuando un nodo es insertado en el documento
+        contenedor.addEventListener('DOMNodeInsertedIntoDocument', function(event) {
+            console.log('DOMNodeInsertedIntoDocument event:', event);
+        });
+
+        // Añadimos escuchadores de eventos a los botones
+        document.getElementById('agregarBoton').addEventListener('click', agregarNuevoBoton);
+        document.getElementById('eliminarBoton').addEventListener('click', eliminarUltimoBoton);
+    </script>
 
 </body>
 </html>
