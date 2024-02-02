@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <button id="myButton1">Click me 1</button>
+   <button id="myButton2">Click me 2</button>
+   
+   
+
+    
+    
+    <script>
+       /* -----------informacion_evento ---------- */
+
+
+      // Selecciona el botón
+const myButton1 = document.getElementById('myButton1');
+const myButton2 = document.getElementById('myButton2');
+myButton1.style.display="flex";
+myButton1.style.justifyContent="center";
+myButton1.style.border="2px solid red";
+
+// Agrega un escuchador de eventos para el clic
+myButton1.addEventListener('click', function(event) {
+    // Imprime el tipo de evento en la consola del navegador
+    console.log('Tipo de evento:', event.type);
+    console.log('Elemento Objetivo:', event.target);
+    // Imprime los cordinates del elemento target en la consola del navegador
+    console.log('xCoordinate:', event.clientX);
+    console.log('yCoordinate:', event.clientY);
+});
+
+// Agrega un escuchador de eventos para el clic
+myButton2.addEventListener('click', function(event) {
+    // Imprime el tipo de evento en la consola del navegador
+    console.log('Tipo de evento:', event.type);
+    console.log('Elemento Objetivo:', event.target);
+    // Imprime los cordinates del elemento target en la consola del navegador
+    console.log('xCoordinate:', event.clientX);
+    console.log('yCoordinate:', event.clientY);
+});
+
+
+    </script>
+</body>
+</html>
